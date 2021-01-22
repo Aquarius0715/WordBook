@@ -1,0 +1,13 @@
+//
+// Created by 北野正樹 on 2021/01/21.
+//
+
+#ifndef WORDBOOK_VOL2_DATA_H
+#define WORDBOOK_VOL2_DATA_H
+
+#endif //WORDBOOK_VOL2_DATA_H
+
+#define NUMBER_OF_WORDS 1000
+#define LENGTH_OF_WORDS 1000
+#define TOTAL_LETTERS 1000000
+#define NUMBER_OF_WORDBOOK 100
