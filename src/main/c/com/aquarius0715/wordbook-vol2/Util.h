@@ -1,6 +1,7 @@
 //
 // Created by 北野正樹 on 2021/01/21.
 //
+#include "stdio.h"
 #include "Data.h"
 
 #ifndef WORDBOOK_VOL2_UTIL_H
@@ -15,11 +16,6 @@ void print_word_two_dimensions(char a[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
         }
         printf("%s\n", a[i]);
     }
-}
-
-int println(char string[LENGTH_OF_WORDS]) {
-    printf("%s\n", string);
-    return 1;
 }
 
 int getSize(char words[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
@@ -38,6 +34,7 @@ int getSmallCapitalId(char character) {
     } else if (character >= 97 && character <= 122) {
         return character;
     }
+    return -1;
 }
 
 int isCapital(char character) {
@@ -70,22 +67,34 @@ int getStringLength(const char string[LENGTH_OF_WORDS]) {
     return -1;
 }
 
-int isEquals(const char string1[LENGTH_OF_WORDS], const char string2[LENGTH_OF_WORDS]) {
+int isEquals(char string1[LENGTH_OF_WORDS], char string2[LENGTH_OF_WORDS]) {
     if (string1[0] == '\0' || string2[0] == '\0') {
-        return 1;
+        return 0;
     }
     if (getStringLength(string1) != getStringLength(string2)) {
-        return 1;
+        return 0;
     }
     for (int i = 0; i < LENGTH_OF_WORDS; i++) {
         if (string1[i] == '\0' || string2[i] == '\0') {
             if (string1[i - 1] == string2[i - 1]) {
-                return 0;
-            } else {
                 return 1;
+            } else {
+                return 0;
             }
         }
         if (string1[i] != string2[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int isContains(char string[LENGTH_OF_WORDS], char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
+    for (int i = 0; i < NUMBER_OF_WORDS; i++) {
+        if (wordBook[i][0] == '\0') {
+            break;
+        }
+        if (isEquals(string, wordBook[i])) {
             return 1;
         }
     }
@@ -115,25 +124,21 @@ int shiftString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS], int n) {
     return 0;
 }
 
-int sortString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
-    for (int i = 0; i < NUMBER_OF_WORDS; i++) {
-        if (wordBook[i + 1][0] == '\0') {
-            return 0;
-        }
-        for (int ii = 0; ii < LENGTH_OF_WORDS; ii++) {
-            int capitalId1 = getSmallCapitalId(wordBook[i][ii]);
-            int capitalId2 = getSmallCapitalId(wordBook[i + 1][ii]);
-            if (capitalId1 == capitalId2) {
-                continue;
-            } else if (capitalId1 < capitalId2) {
-                break;
-            } else if (capitalId1 > capitalId2) {
+void sortString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
+    for (int i = 0; i < NUMBER_OF_WORDS ; i++) {
+        if (wordBook[i + 1][0] == '\0') return;
+        for (int ii = 0; ii < LENGTH_OF_WORDS ; ii++) {
+            if (getSmallCapitalId(wordBook[i][ii]) > getSmallCapitalId(wordBook[i + 1][ii])) {
                 swapString(wordBook[i], wordBook[i + 1]);
                 i = -1;
+                break;
+            } else if (getSmallCapitalId(wordBook[i][ii]) == getSmallCapitalId(wordBook[i + 1][ii])) {
+                continue;
+            } else if (getSmallCapitalId(wordBook[i][ii]) < getSmallCapitalId(wordBook[i + 1][ii])) {
+                break;
             }
         }
     }
-    return 1;
 }
 
 int shiftCharacter(char character[LENGTH_OF_WORDS], int n) {
@@ -176,7 +181,7 @@ int deleteDuplicate(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
             for (int II = 0; II < LENGTH_OF_WORDS; II++) {
                 str2[II] = wordBook[I][II];
             }
-            if (isEquals(str, str2) == 0) {
+            if (isEquals(str, str2)) {
                 shiftString(wordBook, I);
                 I = i;
                 count++;
@@ -191,7 +196,7 @@ int deleteString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char string[LE
         if (wordBook[i][0] == '\0') {
             return 0;
         }
-        if (isEquals(wordBook[i], string) == 0) {
+        if (isEquals(wordBook[i], string)) {
             shiftString(wordBook, i);
             return 1;
         }
@@ -223,4 +228,17 @@ int getWordFromSentence(const char sentence[TOTAL_LETTERS], char words[NUMBER_OF
         }
     }
     return 0;
+}
+
+int println(char string[LENGTH_OF_WORDS]) {
+     printf("%s\n", string);
+    return 1;
+}
+
+void printFrame(int n) {
+    printf("+-");
+    for (int i = 0; i < n; i++) {
+        printf("-");
+    }
+    printf("-+\n");
 }
