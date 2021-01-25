@@ -205,9 +205,13 @@ int deleteString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char string[LE
 }
 
 int getWordFromSentence(const char sentence[TOTAL_LETTERS], char words[NUMBER_OF_WORDS][LENGTH_OF_WORDS], int n) {
+    int insertCount = 0;
     for (int i = 0, ii = 0; i < NUMBER_OF_WORDS; i++) {
         char word[LENGTH_OF_WORDS] = {};
         for (int iii = 0; ; (ii++, iii++)) {
+            if (getSize(words) >= NUMBER_OF_WORDS - 1) {
+                break;
+            }
             word[iii] = sentence[ii];
             if (word[0] == '\n' || word[0] == ' ') {
                 break;
@@ -218,16 +222,18 @@ int getWordFromSentence(const char sentence[TOTAL_LETTERS], char words[NUMBER_OF
                 }
                 deleteOtherThanLetters(word);
                 stringCopy(word, words[i + n]);
+                insertCount++;
                 ii += 2;
                 break;
             } else if (sentence[ii + 1] == '\0' || sentence[ii + 1] == '\n') {
                 deleteOtherThanLetters(word);
                 stringCopy(word, words[i + n]);
-                return 1;
+                insertCount++;
+                return insertCount;
             }
         }
     }
-    return 0;
+    return insertCount;
 }
 
 int println(char string[LENGTH_OF_WORDS]) {

@@ -15,7 +15,7 @@ int onCommand(char cmd[], char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LEN
 
     if (isEquals(cmdWords[0], "quit")) {
         if (getSize(cmdWords) == 1) {
-            quitProgram();
+            quitProgram(wordBook, wordBookIndex);
             return 0;
         }
     }
@@ -74,11 +74,11 @@ int onCommand(char cmd[], char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LEN
     if (isEquals(cmdWords[0], "insert")) {
         if (isEquals(cmdWords[1], "into")) {
             if (getSize(cmdWords) == 4) {
-                addWord(wordBook, cmdWords, wordBookIndex);
+                insertWord(wordBook, cmdWords, wordBookIndex);
                 return 1;
             }
             if (getSize(cmdWords) > 4) {
-                addMultipleWords(wordBook, cmdWords, wordBookIndex);
+                insertMultipleWords(wordBook, cmdWords, wordBookIndex);
                 return 1;
             }
         }

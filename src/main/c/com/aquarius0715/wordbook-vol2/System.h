@@ -2,7 +2,7 @@
 // Created by 北野正樹 on 2021/01/22.
 //
 #include <stdio.h>
-#include "Util.h"
+#include "File.h"
 
 #ifndef WORDBOOK_VOL2_SYSTEM_H
 #define WORDBOOK_VOL2_SYSTEM_H
@@ -11,21 +11,22 @@
 
 void printHelp() {
     println("\n----------wordbook----------");
-    println("this program is simple wordbook.");
+    println("this is simple wordbook.");
     println("----------command list------");
     println("<help> show this help.");
     println("<create wordbook [wordbook]> create new wordbook.");
     println("<show wordbooks> show index of wordbook.");
     println("<insert into [wordbook] [elements]> insert words to the assigned wordbook.");
     println("<select from [wordbook]> select words from the assigned wordbook.");
-    println("<delete from [wordbook]> delete the word from the assigned wordbook.");
+    println("<delete from [wordbook] [element]> delete the word from the assigned wordbook.");
     println("<truncate wordbook [wordbook]> truncate words from the assigned wordbook.");
     println("<drop wordbook [wordbook]> drop the assigned wordbook.");
     println("<quit> Quit this program.\n");
 }
 
-void quitProgram() {
+void quitProgram(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     //TODO quit logic
+    save(wordBookIndex, wordBook);
     println("quit wordbook program.");
 }
 
@@ -61,6 +62,7 @@ void truncateWordBook(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_
             wordBook[index][i][ii] = '\0';
         }
     }
+    save(wordBookIndex, wordBook);
     println("cleared wordbook successfully");
 }
 
@@ -90,47 +92,54 @@ void dropWordBook(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_W
             break;
         }
         if (isEquals(string, wordBookIndex[i])) {
+            char filename[LENGTH_OF_WORDS];
+            sprintf(filename, "%s.txt", wordBookIndex[i]);
             shiftString(wordBookIndex, i);
+            remove(filename);
+            save(wordBookIndex, wordBook);
             println("dropped wordbook successfully");
             return;
         }
     }
 }
 
-void addWord(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char cmdWords[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
+void insertWord(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char cmdWords[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     int index = chooseWordBook(cmdWords[2], wordBookIndex);
     if (index == -1) {
         println("failed to add word to the wordbook (because not exist wordbook)");
         return;
     }
-    getWordFromSentence(cmdWords[3], wordBook[index], getSize(wordBook[index]));
+    int insertCount = getWordFromSentence(cmdWords[3], wordBook[index], getSize(wordBook[index]));
     int deleteCount = deleteDuplicate(wordBook[index]);
     sortString(wordBook[index]);
-    if (deleteCount == 0) {
-        println("added 1 word to the wordbook successfully");
+    if (insertCount - deleteCount != 0) {
+        save(wordBookIndex, wordBook);
+        printf("added %d word to the wordbook successfully\n", insertCount - deleteCount);
     } else {
-        println("failed to add word to the wordbook (because duplicate)");
+        println("failed to add word to the wordbook (because duplicate");
     }
 }
 
-void addMultipleWords(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char cmdWords[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
+void insertMultipleWords(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char cmdWords[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     int index = chooseWordBook(cmdWords[2], wordBookIndex);
     if (index == -1) {
         println("failed to add word to the wordbook (because not exist wordbook)");
         return;
     }
     int i;
+    int insertCount = 0;
     for (i = 0; i < NUMBER_OF_WORDS; i++) {
         if (cmdWords[i + 3][0] == '\0') {
             break;
         }
-        getWordFromSentence(cmdWords[i + 3], wordBook[index], getSize(wordBook[index]));
+        insertCount += getWordFromSentence(cmdWords[i + 3], wordBook[index], getSize(wordBook[index]));
     }
     int deleteCount = deleteDuplicate(wordBook[index]);
     sortString(wordBook[index]);
-    if (i - deleteCount == 0) {
+    if (insertCount - deleteCount == 0) {
         println("added nothing to the wordbook (because duplicate)");
     } else {
+        save(wordBookIndex, wordBook);
         printf("added %d words to the wordbook\n", i - deleteCount);
     }
 }
@@ -142,6 +151,7 @@ void deleteWord(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WOR
         return;
     }
     if (deleteString(wordBook[index], cmdWords[4])) {
+        save(wordBookIndex, wordBook);
         printf("the word '%s' deleted successfully\n", cmdWords[4]);
         return;
     } else {
@@ -155,15 +165,13 @@ void createWordBook(char string[LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_W
         println("failed to create a new wordbook (already exist the wordbook)");
         return;
     }
+    if (getSize(wordBookIndex) >= NUMBER_OF_WORDBOOK - 1) {
+        println("failed to create a new wordbook (the number of wordbooks is maximum)");
+    }
     stringCopy(string, wordBookIndex[getSize(wordBookIndex)]);
+    saveIndex(wordBookIndex);
     println("create wordbook successfully");
-}
-
-void createDefaultWordBook(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
-    createWordBook("default", wordBookIndex);
-    char cmd_words[NUMBER_OF_WORDS][LENGTH_OF_WORDS] = {"insert", "into", "default", "welcome", "to", "the", "wordbook", "program"};
-    addMultipleWords(wordBook, cmd_words, wordBookIndex);
-}
+    }
 
 void showIndex(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
         char title[LENGTH_OF_WORDS] = {"wordbook"};
@@ -183,7 +191,7 @@ void showIndex(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
         printFrame(max);
         for (int i = 0; i < max; i++) {
             if (i == 0) {
-                printf("| ");
+                printf("╎ ");
             }
             if (title[i] != '\0') {
                 printf("%c", title[i]);
@@ -191,7 +199,7 @@ void showIndex(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
                 printf(" ");
             }
         }
-        printf(" |\n");
+        printf(" ╎\n");
         printFrame(max);
 
         int i;
@@ -203,7 +211,7 @@ void showIndex(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
             }
             for (int ii = 0; ii < max; ii++) {
                 if (ii == 0) {
-                    printf("| ");
+                    printf("╎ ");
                 }
                 if (wordBookIndex[i][ii] != '\0' && wordBookIndex[i][ii] != ' ') {
                     printf("%c", wordBookIndex[i][ii]);
@@ -211,7 +219,7 @@ void showIndex(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
                     printf(" ");
                 }
             }
-            printf(" |\n");
+            printf(" ╎\n");
         }
     printFrame(max);
     printf("%d words in set\n\n", i);
