@@ -7,8 +7,6 @@
 #ifndef WORDBOOK_VOL2_SYSTEM_H
 #define WORDBOOK_VOL2_SYSTEM_H
 
-#endif //WORDBOOK_VOL2_SYSTEM_H
-
 void printHelp() {
     println("\n----------wordbook----------");
     println("this is simple wordbook.");
@@ -281,3 +279,5 @@ void selectWordBook(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF
     printFrame(max);
     printf("%d words in set\n\n", i);
 }
+
+#endif //WORDBOOK_VOL2_SYSTEM_H

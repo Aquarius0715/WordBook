@@ -77,27 +77,27 @@ include CMakeFiles/WordBook_Vol2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/WordBook_Vol2.dir/flags.make
 
-CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o: CMakeFiles/WordBook_Vol2.dir/flags.make
-CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o: ../src/main/c/com/aquarius0715/wordbook-vol2/Main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kitanomasaki/CLionProjects/WordBook-Vol2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o   -c /Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Main.c
+CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o: CMakeFiles/WordBook_Vol2.dir/flags.make
+CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o: ../src/main/c/com/aquarius0715/wordbook/Main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kitanomasaki/CLionProjects/WordBook-Vol2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o   -c /Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Main.c
 
-CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Main.c > CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i
+CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Main.c > CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.i
 
-CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Main.c -o CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s
+CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Main.c -o CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.s
 
 # Object files for target WordBook_Vol2
 WordBook_Vol2_OBJECTS = \
-"CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o"
+"CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o"
 
 # External object files for target WordBook_Vol2
 WordBook_Vol2_EXTERNAL_OBJECTS =
 
-WordBook_Vol2: CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o
+WordBook_Vol2: CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o
 WordBook_Vol2: CMakeFiles/WordBook_Vol2.dir/build.make
 WordBook_Vol2: CMakeFiles/WordBook_Vol2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kitanomasaki/CLionProjects/WordBook-Vol2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable WordBook_Vol2"

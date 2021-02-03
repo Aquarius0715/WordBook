@@ -1,0 +1,14 @@
+WordBook> help
+
+----------wordbook----------
+this is simple wordbook.
+----------command list------
+<help> show this help.
+<create wordbook [wordbook]> create new wordbook.
+<show wordbooks> show index of wordbook.
+<insert into [wordbook] [elements]> insert words to the assigned wordbook.
+<select from [wordbook]> select words from the assigned wordbook.
+<delete from [wordbook] where [element]> delete the word from the assigned wordbook.
+<truncate wordbook [wordbook]> truncate words from the assigned wordbook.
+<drop wordbook [wordbook]> drop the assigned wordbook.
+<quit> quit this program.

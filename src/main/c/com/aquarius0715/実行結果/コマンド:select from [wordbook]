@@ -1,0 +1,18 @@
+成功時
+WordBook> select from tutorial
++----------+
+╎ tutorial ╎
++----------+
+╎ apple    ╎
+╎ grape    ╎
+╎ orange   ╎
++----------+
+3 words in set
+
+失敗時(単語帳が存在しない)
+WordBook> select from tangotyou
+failed to select words from the wordbook (because not exist wordbook)
+
+コマンドの使用方法が間違っている時
+WordBook> select to wordbook
+usage: select from [wordbook]

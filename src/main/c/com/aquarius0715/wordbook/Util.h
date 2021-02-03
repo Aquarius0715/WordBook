@@ -7,17 +7,6 @@
 #ifndef WORDBOOK_VOL2_UTIL_H
 #define WORDBOOK_VOL2_UTIL_H
 
-#endif //WORDBOOK_VOL2_UTIL_H
-
-void print_word_two_dimensions(char a[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
-    for (int i = 0; i < NUMBER_OF_WORDS; i++) {
-        if (a[i][0] == '\0') {
-            return;
-        }
-        printf("%s\n", a[i]);
-    }
-}
-
 int getSize(char words[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     int i;
     for (i = 0; i < LENGTH_OF_WORDS; i++) {
@@ -25,23 +14,20 @@ int getSize(char words[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
             return i;
         }
     }
-    return i;
+    return 0;
 }
 
 int getSmallCapitalId(char character) {
     if (character >= 65 && character <= 90) {
         return character + 32;
-    } else if (character >= 97 && character <= 122) {
+    } else if (character >= 97 && character <= 122 || character >= 48 && character <= 57) {
         return character;
     }
-    return -1;
+    return 0;
 }
 
-int isCapital(char character) {
-    if (character >= 65 && character <= 90) {
-        getSmallCapitalId(character);
-        return 1;
-    } else if (character >= 97 && character <= 122) {
+int isCapital(char string) {
+    if (string >= 48 && string <= 57 || string >= 97 && string <= 122 || string >= 65 && string <= 90 || string == 32) {
         return 1;
     } else {
         return 0;
@@ -141,31 +127,6 @@ void sortString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     }
 }
 
-int shiftCharacter(char character[LENGTH_OF_WORDS], int n) {
-    for (int i = n + 1; i < LENGTH_OF_WORDS; i++) {
-        if (character[i - 1] == '\0') {
-            return 1;
-        }
-        character[i - 1] = character[i];
-    }
-    return 0;
-}
-
-int deleteOtherThanLetters(char string[LENGTH_OF_WORDS]) {
-    for (int i = 0; i < LENGTH_OF_WORDS; i++) {
-        if (string[i] == '\0') {
-            return 0;
-        }
-        if (!isCapital(string[i])) {
-            shiftCharacter(string, i);
-        }
-        if (string[i] <= 90) {
-            string[i] = (char) getSmallCapitalId(string[i]);
-        }
-    }
-    return 0;
-}
-
 int deleteDuplicate(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     char str[LENGTH_OF_WORDS];
     char str2[LENGTH_OF_WORDS];
@@ -204,15 +165,21 @@ int deleteString(char wordBook[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char string[LE
     return 0;
 }
 
-int getWordFromSentence(const char sentence[TOTAL_LETTERS], char words[NUMBER_OF_WORDS][LENGTH_OF_WORDS], int n) {
+int getWordFromSentence(char sentence[TOTAL_LETTERS], char words[NUMBER_OF_WORDS][LENGTH_OF_WORDS], int n) {
     int insertCount = 0;
     for (int i = 0, ii = 0; i < NUMBER_OF_WORDS; i++) {
         char word[LENGTH_OF_WORDS] = {};
-        for (int iii = 0; ; (ii++, iii++)) {
+        for (int iii = 0; ; (ii++)) {
             if (getSize(words) >= NUMBER_OF_WORDS - 1) {
                 break;
             }
-            word[iii] = sentence[ii];
+            if (!isCapital(sentence[ii]) && sentence[ii] != ' ' && sentence[ii] != '\0' && sentence[ii] != '\n') {
+                continue;
+            }
+            if (sentence[ii] >= 65 && sentence[ii] <= 90) {
+                sentence[ii] = (char) getSmallCapitalId(sentence[ii]);
+            }
+            word[iii] = sentence[ii]; iii++;
             if (word[0] == '\n' || word[0] == ' ') {
                 break;
             }
@@ -220,13 +187,11 @@ int getWordFromSentence(const char sentence[TOTAL_LETTERS], char words[NUMBER_OF
                 if (sentence[ii + 1] == '\0') {
                     break;
                 }
-                deleteOtherThanLetters(word);
                 stringCopy(word, words[i + n]);
                 insertCount++;
                 ii += 2;
                 break;
             } else if (sentence[ii + 1] == '\0' || sentence[ii + 1] == '\n') {
-                deleteOtherThanLetters(word);
                 stringCopy(word, words[i + n]);
                 insertCount++;
                 return insertCount;
@@ -237,7 +202,7 @@ int getWordFromSentence(const char sentence[TOTAL_LETTERS], char words[NUMBER_OF
 }
 
 int println(char string[LENGTH_OF_WORDS]) {
-     printf("%s\n", string);
+    printf("%s\n", string);
     return 1;
 }
 
@@ -248,3 +213,5 @@ void printFrame(int n) {
     }
     printf("-+\n");
 }
+
+#endif //WORDBOOK_VOL2_UTIL_H

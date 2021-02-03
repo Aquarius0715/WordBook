@@ -6,33 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Command.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Command.h
 System.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/System.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/System.h
 
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Data.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Data.h
 
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/File.h
-Data.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Data.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/File.h
+Util.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Util.h
 
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Main.c
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Main.c
 stdio.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/stdio.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/stdio.h
 Command.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Command.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Command.h
 
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/System.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/System.h
 stdio.h
 -
-Util.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Util.h
 File.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/File.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/File.h
 
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Util.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Util.h
 stdio.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/stdio.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/stdio.h
 Data.h
-/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Data.h
+/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Data.h
 

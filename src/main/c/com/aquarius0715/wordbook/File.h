@@ -7,8 +7,6 @@
 #ifndef WORDBOOK_VOL2_SAVE_H
 #define WORDBOOK_VOL2_SAVE_H
 
-#endif //WORDBOOK_VOL2_SAVE_H
-
 void createDefaultWordBook() {
     FILE *fp;
     char filename[LENGTH_OF_WORDS];
@@ -85,7 +83,6 @@ int getIndex(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
         return 0;
     }
     for (int i = 0; fgets(wordBookIndex[i], LENGTH_OF_WORDS, fp) != NULL; i++) {
-        deleteOtherThanLetters(wordBookIndex[i]);
         wordBookIndex[i][getStringLength(wordBookIndex[i]) - 1] = '\0';
     }
     fclose(fp);
@@ -104,7 +101,6 @@ int getWordBook(char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WOR
             return 0;
         }
         for (int ii = 0; fgets(wordBook[i][ii], LENGTH_OF_WORDS, fp) != NULL; ii++) {
-            deleteOtherThanLetters(wordBook[i][ii]);
             wordBook[i][ii][getStringLength(wordBook[i][ii]) - 1] = '\0';
         }
     }
@@ -123,3 +119,5 @@ void checkFile(char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBo
         getWordBook(wordBook, wordBookIndex);
     }
 }
+
+#endif //WORDBOOK_VOL2_SAVE_H

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook-vol2/Main.c" "/Users/kitanomasaki/CLionProjects/WordBook-Vol2/cmake-build-debug/CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o"
+  "/Users/kitanomasaki/CLionProjects/WordBook-Vol2/src/main/c/com/aquarius0715/wordbook/Main.c" "/Users/kitanomasaki/CLionProjects/WordBook-Vol2/cmake-build-debug/CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

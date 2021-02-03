@@ -1,0 +1,12 @@
+WordBook> show wordbooks
++----------+
+╎ wordbook ╎
++----------+
+╎ default  ╎
+╎ tutorial ╎
++----------+
+2 words in set
+
+コマンドの使用方法が間違っている時
+WordBook> show word
+usage: show wordbooks

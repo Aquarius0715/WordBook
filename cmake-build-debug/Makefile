@@ -143,32 +143,32 @@ WordBook_Vol2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/build
 .PHONY : WordBook_Vol2/fast
 
-src/main/c/com/aquarius0715/wordbook-vol2/Main.o: src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o
+src/main/c/com/aquarius0715/wordbook/Main.o: src/main/c/com/aquarius0715/wordbook/Main.c.o
 
-.PHONY : src/main/c/com/aquarius0715/wordbook-vol2/Main.o
+.PHONY : src/main/c/com/aquarius0715/wordbook/Main.o
 
 # target to build an object file
-src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o
-.PHONY : src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o
+src/main/c/com/aquarius0715/wordbook/Main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o
+.PHONY : src/main/c/com/aquarius0715/wordbook/Main.c.o
 
-src/main/c/com/aquarius0715/wordbook-vol2/Main.i: src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i
+src/main/c/com/aquarius0715/wordbook/Main.i: src/main/c/com/aquarius0715/wordbook/Main.c.i
 
-.PHONY : src/main/c/com/aquarius0715/wordbook-vol2/Main.i
+.PHONY : src/main/c/com/aquarius0715/wordbook/Main.i
 
 # target to preprocess a source file
-src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i
-.PHONY : src/main/c/com/aquarius0715/wordbook-vol2/Main.c.i
+src/main/c/com/aquarius0715/wordbook/Main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.i
+.PHONY : src/main/c/com/aquarius0715/wordbook/Main.c.i
 
-src/main/c/com/aquarius0715/wordbook-vol2/Main.s: src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s
+src/main/c/com/aquarius0715/wordbook/Main.s: src/main/c/com/aquarius0715/wordbook/Main.c.s
 
-.PHONY : src/main/c/com/aquarius0715/wordbook-vol2/Main.s
+.PHONY : src/main/c/com/aquarius0715/wordbook/Main.s
 
 # target to generate assembly for a file
-src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s
-.PHONY : src/main/c/com/aquarius0715/wordbook-vol2/Main.c.s
+src/main/c/com/aquarius0715/wordbook/Main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WordBook_Vol2.dir/build.make CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.s
+.PHONY : src/main/c/com/aquarius0715/wordbook/Main.c.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... WordBook_Vol2"
-	@echo "... src/main/c/com/aquarius0715/wordbook-vol2/Main.o"
-	@echo "... src/main/c/com/aquarius0715/wordbook-vol2/Main.i"
-	@echo "... src/main/c/com/aquarius0715/wordbook-vol2/Main.s"
+	@echo "... src/main/c/com/aquarius0715/wordbook/Main.o"
+	@echo "... src/main/c/com/aquarius0715/wordbook/Main.i"
+	@echo "... src/main/c/com/aquarius0715/wordbook/Main.s"
 .PHONY : help
 
 

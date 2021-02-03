@@ -7,8 +7,6 @@
 #ifndef WORDBOOK_VOL2_COMMAND_H
 #define WORDBOOK_VOL2_COMMAND_H
 
-#endif //WORDBOOK_VOL2_COMMAND_H
-
 int onCommand(char cmd[], char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LENGTH_OF_WORDS], char wordBookIndex[NUMBER_OF_WORDS][LENGTH_OF_WORDS]) {
     char cmdWords[NUMBER_OF_WORDS][LENGTH_OF_WORDS] = {};
     getWordFromSentence(cmd, cmdWords, 0);
@@ -111,3 +109,5 @@ int onCommand(char cmd[], char wordBook[NUMBER_OF_WORDBOOK][NUMBER_OF_WORDS][LEN
     println("There is no such command.");
     return 1;
 }
+
+#endif //WORDBOOK_VOL2_COMMAND_H

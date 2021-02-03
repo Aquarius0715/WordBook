@@ -1,0 +1,11 @@
+成功時
+WordBook> drop wordbook tutorial
+dropped wordbook successfully
+
+失敗時(指定された単語帳が存在しない)
+WordBook> drop wordbook tutorial
+failed to drop the wordbook (because not exist wordbook)
+
+コマンドの使用方法が間違っている時
+WordBook> drop word
+usage: drop wordbook [wordbook]

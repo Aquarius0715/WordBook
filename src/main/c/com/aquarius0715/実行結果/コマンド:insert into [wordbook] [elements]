@@ -1,0 +1,15 @@
+成功時
+WordBook> insert into tutorial apple grape orange
+added 3 words to the wordbook
+
+失敗時(単語帳が存在しない)
+WordBook> insert into tangotyou apple grape orange
+failed to add word to the wordbook (because not exist wordbook)
+
+失敗時(単語が重複している)
+WordBook> insert into tutorial apple grape orange
+added nothing to the wordbook (because duplicate)
+
+コマンドの使用方法が間違っている時
+WordBook> insert in tutorial
+usage: insert into [wordbook] [elements]

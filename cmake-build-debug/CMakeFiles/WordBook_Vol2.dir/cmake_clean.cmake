@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook-vol2/Main.c.o"
+  "CMakeFiles/WordBook_Vol2.dir/src/main/c/com/aquarius0715/wordbook/Main.c.o"
   "WordBook_Vol2"
   "WordBook_Vol2.pdb"
 )
